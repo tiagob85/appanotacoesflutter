@@ -41,44 +41,65 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          Container(
-            padding: new EdgeInsets.all(0.3),
-            child: Card(
-              elevation: 8,
-              child: InkWell(
-                splashColor: Colors.blue.withAlpha(80),
-                onTap: () {
-                  print('Card Tapped.');
-                },
-                child: Column(
-                  //mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    const ListTile(
-                      title: Text(
-                        'Anotação teste',
-                        style: TextStyle(
-                          fontSize: 21,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      subtitle: Text(
-                        '26/08/2021 23:15',
-                        textAlign: TextAlign.right,
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+          ListView(
+            shrinkWrap: true,
+            physics:
+                const ClampingScrollPhysics(), //Scroll para correr a lista.
+            children: [
+              NoteBox(title: "Anotação 1", data: "28/08/2021 18:31"),
+              NoteBox(title: "Anotação 2", data: "28/08/2021 18:32"),
+              NoteBox(title: "Anotação 3", data: "28/08/2021 18:33"),
+              NoteBox(title: "Anotação 4", data: "28/08/2021 18:34"),
+              NoteBox(title: "Anotação 5", data: "28/08/2021 18:35"),
+              NoteBox(title: "Anotação 6", data: "28/08/2021 18:36"),
+              NoteBox(title: "Anotação 7", data: "28/08/2021 18:37"),
+              NoteBox(title: "Anotação 8", data: "28/08/2021 18:38"),
+            ],
           ),
         ],
       ),
     );
   }
+}
 
-  //Função global
+class NoteBox extends StatelessWidget {
+  const NoteBox({
+    Key? key,
+    required this.title,
+    required this.data,
+  }) : super(key: key);
+
+  final String title;
+  final String data;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(2),
+      child: Card(
+        elevation: 8,
+        child: Column(
+          children: <Widget>[
+            ListTile(
+              title: Text(
+                this.title,
+                style: TextStyle(
+                  fontSize: 21,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              subtitle: Text(
+                this.data,
+                textAlign: TextAlign.right,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
