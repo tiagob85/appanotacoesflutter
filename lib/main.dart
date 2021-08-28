@@ -54,6 +54,7 @@ class _HomePageState extends State<HomePage> {
               NoteBox(title: "Anotação 6", data: "28/08/2021 18:36"),
               NoteBox(title: "Anotação 7", data: "28/08/2021 18:37"),
               NoteBox(title: "Anotação 8", data: "28/08/2021 18:38"),
+              NoteBox(title: "Anotação 9", data: "28/08/2021 18:39"),
             ],
           ),
         ],
